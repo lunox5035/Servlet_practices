@@ -37,8 +37,10 @@
 		</tr>
 	</table>
 
-		<br/>
-	<img src="http://Localhost:8080/helloweb/images/cat2.jpg"style="width: 100px"><!-- 외부이미지 -->
+	<br />
+	<img src="http://Localhost:8080/helloweb/images/cat2.jpg"
+		style="width: 100px">
+	<!-- 외부이미지 -->
 	<br />
 	<img src="/helloweb/images/cat2.jpg" style="width: 100px">
 	<br />
@@ -51,6 +53,7 @@
 	<br />
 	<a href="/helloweb/hello?name=여관규">hello로가기2</a>
 	<br />
-	<a href="form.jsp">폼으로가기</a><!--포스트방식  -->
+	<a href="form.jsp">폼으로가기</a>
+	<!--포스트방식  -->
 </body>
 </html>

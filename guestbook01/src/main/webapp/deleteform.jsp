@@ -19,8 +19,8 @@
 				<td><input type="submit" value="삭제"></td>
 			</tr>
 		</table>
-		
-				<a href="index.jsp">메인으로 돌아가기</a>
+
+		<a href="index.jsp">메인으로 돌아가기</a>
 	</form>
 </body>
 </html>
