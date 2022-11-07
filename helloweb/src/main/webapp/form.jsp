@@ -10,6 +10,8 @@
 <form action="join.jsp" method="post">
 	email:<input type="text" name="email"/>
 	<br/>
+	이름:<input type="text" name="name" />
+	<br/>
 	비밀번호:<input type="password" name="password" value=""/>
 	
 	<br/>
@@ -27,6 +29,13 @@
 	자기소개:
 	<br/><br/>
 	<textarea name="profile"></textarea>
+	<br/>
+	취미:
+	코딩<input type="checkbox" name="habby"value="coding"/>
+	음주<input type="checkbox" name="habby"value="drinking"/>
+	요리<input type="checkbox" name="habby"value="cooking"/>
+	운동<input type="checkbox" name="habby"value="exercise"/>
+	<br/>
 	<br/>
 	<input type="submit" value="회원가입"/>
 	

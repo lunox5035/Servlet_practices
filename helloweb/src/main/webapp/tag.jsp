@@ -47,7 +47,9 @@
 		문장입니다.~~~<br /> 문장입니다.~~~<br /> 문장입니다.~~~<br />
 	</p>
 
-	<a href="hello.jsp?name=여관규">hello로가기</a>
+	<a href="hello.jsp?name=여관규">hello로가기1</a>
+	<br />
+	<a href="/helloweb/hello?name=여관규">hello로가기2</a>
 	<br />
 	<a href="form.jsp">폼으로가기</a><!--포스트방식  -->
 </body>
