@@ -11,7 +11,7 @@ String birthYear = request.getParameter("birthYear");
 String gender = request.getParameter("gender");
 String profile = request.getParameter("profile");
 
-String[] hobbies =request.getParameterValues("hobby");
+String[] hobbies = request.getParameterValues("hobby");
 %>
 
 <!DOCTYPE html>
@@ -29,13 +29,14 @@ String[] hobbies =request.getParameterValues("hobby");
 	<p><%=profile%></p>
 
 	<%
-		for(String hobby:hobbies){
+	for(String hobby:hobbies) {
 	%>
-		<h4><%=hobby%></h4>
+	<h4><%=hobby%></h4>
 	<%
-		} 
+	}
 	%>
-	
-	<h6>email:<%=email%>,password:<%=password%>,birthYear:<%=birthYear%>,gender:<%=gender%></h6> 
+
+	<h6>
+		email:<%=email%>,password:<%=password%>,birthYear:<%=birthYear%>,gender:<%=gender%></h6>
 </body>
 </html>
