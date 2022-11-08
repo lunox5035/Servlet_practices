@@ -30,26 +30,30 @@
 			</tr>
 		</table>
 	</form>
+	<br>
 	<%
 		int count =list.size();
 		for (guestbookVo vo : list) {
 	%>
-	<br>
-	<table width=510 border=1>
-
-		<tr>
-			<td>[<%=count--  %>]
-			</td>
-			<td><%=vo.getPassword()%></td>
-			<td><%= vo.getReg_date()%></td>
-			<td><a href="deleteform.jsp?no=<%=vo.getNo() %>" >삭제</a></td>
-		</tr>
-		<tr>
-			<td colspan=4><%=vo.getContents().replaceAll("\n","<br>")%></td>
-		</tr>
-	</table>
+		<table width=510 border=1>
+	
+			<tr>
+				<td>[<%=count--  %>]</td>
+				<td><%=vo.getName() %></td>
+				<td><%= vo.getReg_date()%></td>
+				<td>
+					<a href="deleteform.jsp?no=<%=vo.getNo() %>" >삭제</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=4>
+					<%=vo.getContents().replaceAll("\n","<br>")%>
+				</td>
+			</tr>
+		</table>
+		<br>
 	<%
-	}
+		}
 	%>
 
 </body>

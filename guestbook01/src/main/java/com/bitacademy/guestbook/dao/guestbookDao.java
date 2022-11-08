@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bitacademy.guestbook.dao.guestbookDao;
 import com.bitacademy.guestbook.vo.guestbookVo;
 
 public class guestbookDao {
@@ -65,7 +64,7 @@ public class guestbookDao {
 		conn = getConnection();
 		
 		//3. Statement 생성
-		String sql = "delete from guestbook where no = ? and password = ?";
+		String sql = "delete from gustbook where no = ? and password = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setLong(1, no);
 		pstmt.setString(2, password);
@@ -108,9 +107,9 @@ public class guestbookDao {
 			conn = getConnection();
 
 			String sql = 
-					"   select no, name, password, contents,date_format(reg_date, '%Y/%m/%d %H:%i:%s')" + 
-				    "     from guestbook" + 
-					" order by no desc";
+					"   select no, name, contents, date_format(reg_date, '%Y/%m/%d %H:%i:%s')" + 
+				    "     from gustbook" + 
+					" order by reg_date desc";
 
 			pstmt = conn.prepareStatement(sql);
 			
@@ -153,7 +152,7 @@ public class guestbookDao {
 		return result;
 	}
 
-	
+//========================================================================================================	
 	private Connection getConnection() throws SQLException {
 		Connection conn = null;
 

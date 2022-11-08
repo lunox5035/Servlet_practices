@@ -5,11 +5,11 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	String no =request.getParameter("no");
-	Long no= Long.parseLong(sno);
+	String sno =request.getParameter("no");
+	Long no = Long.parseLong(sno);
 	String password = request.getParameter("password");
 	
 	new guestbookDao().deleteByNoAndPassword(no,password);
 	
-	response.sendRedirect("/guestboo01");
+	response.sendRedirect("/guestbook01");
 %>

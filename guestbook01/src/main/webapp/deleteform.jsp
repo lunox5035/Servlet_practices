@@ -11,7 +11,7 @@
 </head>
 <body>
 	<form method="post" action="delete.jsp">
-		<input type='text' name="no" value="<%=no%>">
+		<input type="hidden" name="no" value="<%=no %>">
 		<table>
 			<tr>
 				<td>비밀번호</td>
@@ -19,7 +19,7 @@
 				<td><input type="submit" value="삭제"></td>
 			</tr>
 		</table>
-
+		<br/><br/>
 		<a href="index.jsp">메인으로 돌아가기</a>
 	</form>
 </body>

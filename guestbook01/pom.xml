@@ -7,12 +7,14 @@
 	</parent>
 	<artifactId>guestbook01</artifactId>
 	<packaging>war</packaging>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
 		<maven.compiler.source>12</maven.compiler.source>
 		<maven.compiler.target>12</maven.compiler.target>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
@@ -20,6 +22,7 @@
 			<version>2.7.2</version>
 		</dependency>
 	</dependencies>
+	
 	<build>
 		<finalName>guestbook01</finalName>
 		<plugins>
