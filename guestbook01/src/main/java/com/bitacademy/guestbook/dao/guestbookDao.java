@@ -1,54 +1,46 @@
 package com.bitacademy.guestbook.dao;
 
-import java.net.PasswordAuthentication;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bitacademy.emaillist.vo.EmaillistVo;
+import com.bitacademy.guestbook.dao.guestbookDao;
 import com.bitacademy.guestbook.vo.guestbookVo;
 
 public class guestbookDao {
+
+//===============================================================================================
 	public Boolean insert(guestbookVo vo) {
 		boolean result = false;
 		
 		Connection conn = null;
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		
 		try {
-			//1. JDBC Driver Class Loading
-			Class.forName("org.mariadb.jdbc.Driver");
-			
-			//2. 연결하기
-			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
-			conn = DriverManager.getConnection(url, "webdb", "webdb");
-			
+			conn = getConnection();
 			//3. Statement 생성
-			stmt = conn.createStatement();
-			
-			
-			String sql = "insert "+
-					 "into gustbook "+
-					"values(null,'"+vo.getName()+"', '"+vo.getPassword()+"','"+vo.getContents()+"',now())";
+			String sql = "insert into gustbook values(null,?,?,?,now())";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getPassword());
+			pstmt.setString(3, vo.getContents());
 
 			// 5. SQL 실행
-			int count = stmt.executeUpdate(sql);
+			int count = pstmt.executeUpdate();
 
 			// 6. 결과 처리
 			result = count == 1;
 
-		} catch (ClassNotFoundException e) {
-			System.out.println("드라이버 로딩 실패:" + e);
 		} catch (SQLException e) {
 			System.out.println("Error:" + e);
 		} finally {
 			try {
-				if (stmt != null) {
-					stmt.close();
+				if (pstmt != null) {
+					pstmt.close();
 				}
 
 				if (conn != null) {
@@ -62,87 +54,118 @@ public class guestbookDao {
 		return result;
 
 	}
-	public Boolean delete(guestbookVo vo) {
+//===============================================================================================
+	public Boolean deleteByNoAndPassword(Long no, String password) {
 		boolean result = false;
+	
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	
+	try {
+		conn = getConnection();
+		
+		//3. Statement 생성
+		String sql = "delete from guestbook where no = ? and password = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setLong(1, no);
+		pstmt.setString(2, password);
 
-		Connection conn = null;
-		Statement stmt = null;
+		// 5. SQL 실행
+		int count = pstmt.executeUpdate();
 
+		// 6. 결과 처리
+		result = count == 1;
+
+	} catch (SQLException e) {
+		System.out.println("Error:" + e);
+	} finally {
 		try {
-			//1. JDBC Driver Class Loading
-			Class.forName("org.mariadb.jdbc.Driver");
-			
-			//2. 연결하기
-			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
-			conn = DriverManager.getConnection(url, "webdb", "webdb");
-			
-			// 3. Statement 준비
-			String sql = "delete "+
-					 "from gustbook "+
-					"where password='"+vo.getPassword()+"' and no='"+vo.getNum()+"'";
-			// 5. SQL 실행
-			int count = stmt.executeUpdate(sql);
-
-			// 6. 결과 처리
-			result = count == 1;
-
-		} catch (ClassNotFoundException e) {
-			System.out.println("드라이버 로딩 실패:" + e);
-		} catch (SQLException e) {
-			System.out.println("Error:" + e);
-		} finally {
-			try {
-				if (stmt != null) {
-					stmt.close();
-				}
-
-				if (conn != null) {
-					conn.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
+			if (pstmt != null) {
+				pstmt.close();
 			}
-		}
 
-		return result;
+			if (conn != null) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	return result;
 
 	}
 	
+//===============================================================================================
 	public List<guestbookVo> findAll() {
 		List<guestbookVo> result = new ArrayList<>();
 	
 		Connection conn = null;
-		Statement stmt = null;
+		PreparedStatement  pstmt = null;
 		ResultSet rs = null;
 		
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
+			conn = getConnection();
 
-			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
-			conn = DriverManager.getConnection(url, "webdb", "webdb");
-			
-			stmt = conn.createStatement();
-			
 			String sql = 
-				"   select no,name, password,contents,reg_date" + 
-			    "     from guestbook" + 
-				" order by no desc";
+					"   select no, name, password, contents,date_format(reg_date, '%Y/%m/%d %H:%i:%s')" + 
+				    "     from guestbook" + 
+					" order by no desc";
+
+			pstmt = conn.prepareStatement(sql);
 			
-			rs = stmt.executeQuery(sql);
+			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int no=rs
-				String firstName = rs.getString(1);
-				String lastName = rs.getString(2);
-				String email = rs.getString(3);
+				Long no = rs.getLong(1);
+				String name = rs.getString(2);
+				String contents = rs.getString(3);
+				String regDate = rs.getString(4);
 				
 				guestbookVo vo = new guestbookVo();
 				vo.setNo(no);
 				vo.setName(name);
-				vo.setPassword(Password);
 				vo.setContents(contents);
-				vo.setReg_date(reg_date);
+				vo.setReg_date(regDate);
+				
 				result.add(vo);
 			}
-		}
+			
+		} catch (SQLException e) {
+			System.out.println("Error:" + e);
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		
+		return result;
+	}
+
+	
+	private Connection getConnection() throws SQLException {
+		Connection conn = null;
+
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+			
+			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
+			conn = DriverManager.getConnection(url, "webdb", "webdb");
+		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 로딩 실패:" + e);
+		} 
+		
+		return conn;
 	}
 }

@@ -1,10 +1,11 @@
+<%@page import="com.bitacademy.guestbook.vo.guestbookVo"%>
 <%@ page import="java.util.List"%>
 <%@ page import="com.bitacademy.guestbook.dao.guestbookDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
-List<guestbookVo> list = new guestbookDao().findAll();
+	List<guestbookVo> list = new guestbookDao().findAll();
 %>
 
 <html>
@@ -13,7 +14,7 @@ List<guestbookVo> list = new guestbookDao().findAll();
 <title>방명록</title>
 </head>
 <body>
-	<form action="" method="post">
+	<form action="add.jsp" method="post">
 		<table border=1 width=500>
 			<tr>
 				<td>이름</td>
@@ -22,26 +23,29 @@ List<guestbookVo> list = new guestbookDao().findAll();
 				<td><input type="password" name="password"></td>
 			</tr>
 			<tr>
-				<td colspan=4><textarea name="message" cols=60 rows=5></textarea></td>
+				<td colspan=4><textarea name="contents" cols=60 rows=5></textarea></td>
 			</tr>
 			<tr>
 				<td colspan=4 align=right><input type="submit" VALUE=" 확인 "></td>
 			</tr>
 		</table>
 	</form>
+	<%
+		int count =list.size();
+		for (guestbookVo vo : list) {
+	%>
 	<br>
 	<table width=510 border=1>
-		<%
-		for (guestbookVo vo : list) {
-		%>
+
 		<tr>
-			<td>vo.getNo</td>
-			<td>vo.getPassword()</td>
-			<td>vo.getDate</td>
-			<td><a href="deleteform.jsp?no=no<%%>" )>삭제</a></td>
+			<td>[<%=count--  %>]
+			</td>
+			<td><%=vo.getPassword()%></td>
+			<td><%= vo.getReg_date()%></td>
+			<td><a href="deleteform.jsp?no=<%=vo.getNo() %>" >삭제</a></td>
 		</tr>
 		<tr>
-			<td colspan=4>vo.getContents</td>
+			<td colspan=4><%=vo.getContents().replaceAll("\n","<br>")%></td>
 		</tr>
 	</table>
 	<%

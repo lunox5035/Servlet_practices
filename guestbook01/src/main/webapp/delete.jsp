@@ -1,12 +1,15 @@
+<%@page import="com.bitacademy.guestbook.dao.guestbookDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+	
+<%
+	request.setCharacterEncoding("UTF-8");
 
-</body>
-</html>
+	String no =request.getParameter("no");
+	Long no= Long.parseLong(sno);
+	String password = request.getParameter("password");
+	
+	new guestbookDao().deleteByNoAndPassword(no,password);
+	
+	response.sendRedirect("/guestboo01");
+%>
