@@ -23,9 +23,9 @@ public class EmaillistController extends HttpServlet {
 			List<EmaillistVo> list = new EmaillistDao().findAll();
 			
 			request.setAttribute("list", list);
-			RequestDispatcher rd= request.getRequestDispatcher("/WEB-INF/views/index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
 			rd.forward(request, response);
-		}
+		} 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
