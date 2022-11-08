@@ -26,7 +26,6 @@ public class gusetbookControll extends HttpServlet {
 			
 		}else if("delete".equals(action)){
 
-
 			String sno =request.getParameter("no");
 			Long no = Long.parseLong(sno);
 			String password = request.getParameter("password");
