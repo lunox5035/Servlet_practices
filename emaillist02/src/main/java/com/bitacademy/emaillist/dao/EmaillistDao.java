@@ -69,14 +69,14 @@ public class EmaillistDao {
 		
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-
+			
 			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 			
 			stmt = conn.createStatement();
 			
 			String sql = 
-				"   select first_name, last_name, email" + 
+				"   select frst_name, last_name, emaill" + 
 			    "     from emaillist" + 
 				" order by no desc";
 			

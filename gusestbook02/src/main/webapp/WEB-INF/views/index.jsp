@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	List<guestbookVo> list = new guestbookDao().findAll();
+	List<guestbookVo> list = (List<guestbookVo>)request.getAttribute("list");
 %>
 
 <html>
@@ -14,13 +14,12 @@
 <title>방명록</title>
 </head>
 <body>
-	<form action="add.jsp" method="post">
+	<form action="<%=request.getContextPath() %>/gc" method="post">
+			<input type="hidden" name="g" value="add" />
 		<table border=1 width=500>
 			<tr>
-				<td>이름</td>
-				<td><input type="text" name="name"></td>
-				<td>비밀번호</td>
-				<td><input type="password" name="password"></td>
+				<td>이름</td>	<td><input type="text" name="name"></td>
+				<td>비밀번호</td><td><input type="password" name="password"></td>
 			</tr>
 			<tr>
 				<td colspan=4><textarea name="contents" cols=60 rows=5></textarea></td>
@@ -42,12 +41,12 @@
 				<td><%=vo.getName() %></td>
 				<td><%= vo.getReg_date()%></td>
 				<td>
-					<a href="deleteform.jsp?no=<%=vo.getNo() %>" >삭제</a>
+					<a href="<%=request.getContextPath() %>/gc?g=form&no=<%=vo.getNo() %>"/>삭제</a>
 				</td>
 			</tr>
 			<tr>
 				<td colspan=4>
-					<%=vo.getContents().replaceAll("\n","<br/>")%>
+					<%=vo.getContents().replaceAll("\n","<br>")%>
 				</td>
 			</tr>
 		</table>
