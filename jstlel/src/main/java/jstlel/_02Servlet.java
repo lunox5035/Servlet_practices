@@ -1,3 +1,4 @@
+package jstlel;
 
 
 import java.io.IOException;
@@ -28,18 +29,21 @@ public class _02Servlet extends HttpServlet {
 		 * 
 		 */
 		
-		//request scope
-		UserVo vo1=new UserVo();
-		vo1.setNo(1L);
-		vo1.setName("둘리1");
-		request.setAttribute("vo", vo1);
-		
-		
-		//session scope
-				UserVo vo2=new UserVo();
-				vo1.setNo(2L);
-				vo1.setName("둘리2");
-				request.getSession.setAttribute("vo", vo2);
+		// request scope
+				UserVo vo1 = new UserVo();
+				vo1.setNo(1L);
+				vo1.setName("둘리1");
+				request.setAttribute("vo", vo1);
+
+				// session scope
+				UserVo vo2 = new UserVo();
+				vo2.setNo(2L);
+				vo2.setName("둘리2");
+				request.getSession().setAttribute("vo", vo2);
+
+				request
+					.getRequestDispatcher("/WEB-INF/views/02.jsp")
+					.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

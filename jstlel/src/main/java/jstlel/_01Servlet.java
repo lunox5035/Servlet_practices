@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,17 +33,19 @@ public class _01Servlet extends HttpServlet {
 		Object obj=null;
 		request.setAttribute("obj", obj);
 		
-		UserVo. userVo-new UserVo;
-		userVo.serNo(10L);
-		userVo.serName("둘리");
-		Request
+		UserVo userVo=new UserVo();
+		userVo.setNo(10L);
+		userVo.setName("둘리");
+		request.setAttribute("userVo", userVo);
 		
 		//map
 		Map<String, Object>map =new HashMap<>();
-		map.put("iVal, iVal);
-		map.put("iVal, iVal);
-		map.put("iVal, iVal);
-		map.put("iVal, iVal);
+		map.put("iVal", iVal);
+		map.put("lVal", lVal);
+		map.put("fVal", fVal);
+		map.put("bVal", bVal);
+		map.put("sVal", sVal);
+		request.setAttribute("m", map);
 										
 		request.getRequestDispatcher("/WEB-INF/views/01.jsp").forward(request, response);
 		}
