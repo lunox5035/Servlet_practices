@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <description></description>
     <display-name>_01Servlet</display-name>
@@ -20,8 +19,6 @@
     <servlet-name>_01Servlet</servlet-name>
     <url-pattern>/01</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <description></description>
     <display-name>_02Servlet</display-name>
@@ -31,5 +28,15 @@
   <servlet-mapping>
     <servlet-name>_02Servlet</servlet-name>
     <url-pattern>/02</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>_03jstlel</display-name>
+    <servlet-name>_03jstlel</servlet-name>
+    <servlet-class>jstlel._03jstlel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>_03jstlel</servlet-name>
+    <url-pattern>/03</url-pattern>
   </servlet-mapping>
 </web-app>
