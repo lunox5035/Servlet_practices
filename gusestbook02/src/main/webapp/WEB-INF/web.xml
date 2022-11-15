@@ -11,12 +11,12 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>gusetbookControll</display-name>
-    <servlet-name>gusetbookControll</servlet-name>
-    <servlet-class>com.bitacademy.guestbook.controller.gusetbookControll</servlet-class>
+    <display-name>GuestbookController</display-name>
+    <servlet-name>GuestbookController</servlet-name>
+    <servlet-class>com.bitacademy.guestbook.controller.GuestbookController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>gusetbookControll</servlet-name>
-    <url-pattern>/gc</url-pattern>
+    <servlet-name>GuestbookController</servlet-name>
+    <url-pattern>/gb</url-pattern>
   </servlet-mapping>
 </web-app>

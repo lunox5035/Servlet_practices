@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	List<guestbookVo> list = (List<guestbookVo>)request.getAttribute("list");
+List<guestbookVo> list = (List<guestbookVo>)request.getAttribute("list");
 %>
 
 <html>
@@ -14,7 +14,7 @@
 <title>방명록</title>
 </head>
 <body>
-	<form action="<%=request.getContextPath() %>/gc" method="post">
+	<form action="<%=request.getContextPath()%>/gc" method="post">
 			<input type="hidden" name="g" value="add" />
 		<table border=1 width=500>
 			<tr>
@@ -31,8 +31,8 @@
 	</form>
 	<br>
 	<%
-		int count =list.size();
-		for (guestbookVo vo : list) {
+	int count =list.size();
+			for (guestbookVo vo : list) {
 	%>
 		<table width=510 border=1>
 	

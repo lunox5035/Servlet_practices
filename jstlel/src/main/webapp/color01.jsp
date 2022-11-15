@@ -12,24 +12,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	if("red".equals(color)){
-%>
-<h1 style="color:#ff00">Hwllo World</h1>
-<%
-	}else if("blue".color(color)){	
-%>
-<h1 style="color:#00ff00">Hwllo World</h1>
-<%
-	}else if("green".color(color)){	
-%>
-<h1 style="color:#0000ff">Hwllo World</h1>
-<% 
-	}else{
-%>
-<h1>Hwllo World</h1>
-<%
-	}
-%>
+	<%
+		if("red".equals(color)) {
+	%>
+		<h1 style="color:#ff0000">Hello World</h1>
+	<%
+		} else if("blue".equals(color)) {
+	%>
+		<h1 style="color:#0000ff">Hello World</h1>
+	<%
+		} else if("green".equals(color)) {
+	%>
+		<h1 style="color:#00ff00">Hello World</h1>
+	<%
+		} else {
+	%>
+		<h1>Hello World</h1>
+	<%
+		}
+	%>
 </body>
 </html>

@@ -4,8 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
-	String col request.getParameter("c");
-	String row request.getParameter("r");
+	String col= request.getParameter("c");
+	String row= request.getParameter("r");
 	
 	int nCol=Integer.paeseInt(col);
 	int nRow=Integer.paeseInt(row);
