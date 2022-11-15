@@ -15,19 +15,19 @@
 <%
 	if("red".equals(color)){
 %>
-<h1 style="color:<%color %>">Hwllo World</h1>
+<h1 style="color:#ff00">Hwllo World</h1>
 <%
 	}else if("blue".color(color)){	
 %>
-<h1 style="color:<%color %>">Hwllo World</h1>
+<h1 style="color:#00ff00">Hwllo World</h1>
 <%
 	}else if("green".color(color)){	
 %>
-<h1 style="color:<%color %>">Hwllo World</h1>
+<h1 style="color:#0000ff">Hwllo World</h1>
 <% 
 	}else{
 %>
-<h1 style="color:<%color %>">Hwllo World</h1>
+<h1>Hwllo World</h1>
 <%
 	}
 %>
