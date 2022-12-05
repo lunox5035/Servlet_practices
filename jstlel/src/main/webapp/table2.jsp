@@ -1,15 +1,18 @@
-<%@page import="java.awt.print.PrinterGraphics"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<c:set Var="row" value="${param.r }"/>
-<c:set Var="col" value="${param.c }"/>
+<c:set var="row" value="${param.r }" />
+<c:set var="col" value="${param.c }" />
 
-<c:if test="${emty row }">
-
-	<c:set var="col" value="3"/>
+<c:if test="${empty row }">
+	<c:set var="row" value="3" />
 </c:if>
+
+<c:if test="${empty col }">
+	<c:set var="col" value="3" />
+</c:if>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,14 +20,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table border="1"cellspacing="0">
-		<c:forEach begin="0" end=${param.r-1 } step="1 var="r">
+	<table border='1' cellspacing='0'>
+		<c:forEach begin='0' end='${row-1 }' step='1' var='r'>	
 			<tr>
-				<c:forEach begin="0" end=${param.r-1 } step="1 var="c">
-					<td>cell(col,${r })</td>
+				<c:forEach begin='0' end='${col-1 }' step='1' var='c'>	
+					<td>cell(${c }, ${r })</td>
 				</c:forEach>
 			</tr>
 		</c:forEach>
-		</table>
+	</table>
 </body>
 </html>

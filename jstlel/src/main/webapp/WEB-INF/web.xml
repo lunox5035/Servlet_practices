@@ -31,12 +31,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>_03jstlel</display-name>
-    <servlet-name>_03jstlel</servlet-name>
-    <servlet-class>jstlel._03jstlel</servlet-class>
+    <display-name>_03Servlet</display-name>
+    <servlet-name>_03Servlet</servlet-name>
+    <servlet-class>jstlel._03Servlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>_03jstlel</servlet-name>
+    <servlet-name>_03Servlet</servlet-name>
     <url-pattern>/03</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -8,18 +8,13 @@
 </head>
 <body>
 	<h4>scope(객체의 저장 범위)</h4>
-	${vo.no }<br/>
-	${vo.name }<br/>
-	${requestScope.vo.no }<br/>
-	${requestScope.vo.name }<br/>
+	${requestScope.vo.no } <br/>
+	${requestScope.vo.name } <br/>
 	
-	=======================
+	=========================== <br/>
 	
-	${vo.no }<br/>
-	${vo.name }<br/>
-	${sessionScope.vo.no }<br/>
-	${sessionScope.vo.name }<br/>
-	
+	${sessionScope.vo.no } <br/>
+	${sessionScope.vo.name } <br/>
 	
 </body>
 </html>
