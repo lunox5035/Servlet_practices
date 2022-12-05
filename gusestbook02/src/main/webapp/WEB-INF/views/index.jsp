@@ -30,14 +30,14 @@
 	<%
 		int count = list.size();
 		int index = 0;
-		for(GuestbookVo vo : list){
+		for(guestbookVo vo : list){
 	%>
 		<br>
 		<table width=510 border=1>
 			<tr>
 				<td>[<%=count-index++ %>]</td>
 				<td><%=vo.getName() %></td>
-				<td><%=vo.getRegDate() %></td>
+				<td><%=vo.getReg_date() %></td>
 				<td><a href="<%=request.getContextPath() %>/gb?a=deleteform&no=<%=vo.getNo() %>">삭제</a></td>
 			</tr>
 			<tr>
