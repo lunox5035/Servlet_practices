@@ -1,11 +1,11 @@
-<%@page import="com.bitacademy.guestbook.vo.GuestbookVo"%>
+
+<%@ page import="com.bitacademy.guestbook.vo.guestbookVo"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.bitacademy.guestbook.repository.GuestbookRepository"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page import="com.bitacademy.guestbook.dao.guestbookDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-List<GuestbookVo> list = new GuestbookRepository().findAll();
+List<guestbookVo> list = new guestbookDao().findAll();
 %>
 
 <html>
@@ -33,7 +33,7 @@ List<GuestbookVo> list = new GuestbookRepository().findAll();
 	<br>
 	<%
 	int count =list.size();
-			for (GuestbookVo vo : list) {
+			for (guestbookVo vo : list) {
 	%>
 		<table width=510 border=1>
 	

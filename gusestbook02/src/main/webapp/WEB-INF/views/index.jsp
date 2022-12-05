@@ -1,11 +1,8 @@
 <%@page import="com.bitacademy.guestbook.vo.guestbookVo"%>
-<%@ page import="java.util.List"%>
-<%@ page import="com.bitacademy.guestbook.dao.guestbookDao"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-List<guestbookVo> list = (List<guestbookVo>)request.getAttribute("list");
+	List<guestbookVo> list = (List<guestbookVo>)request.getAttribute("list");
 %>
 
 <html>

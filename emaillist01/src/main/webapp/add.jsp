@@ -1,4 +1,4 @@
-<%@page import="com.bitacademy.emaillist.dao.EmaillistDao"%>
+<%@page import="com.bitacademy.emaillist.Dao.EmaillistDao"%>
 <%@page import="com.bitacademy.emaillist.vo.EmaillistVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
